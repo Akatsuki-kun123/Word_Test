@@ -5,11 +5,16 @@ Unit_list
 {% endblock %}
 
 {% block content %}
-    {% if Unit %}
+    <div class="unit__container">
+        {% if Unit %}
         {% for item in Unit %}
-            <a href="{% url 'Ques_page' item.id %}"><li style="margin: 30px">{{ item.unit_text }}</li></a>
+        <div class="button__container">
+            <a href="{% url 'Ques_page' item.id %}"><div class="button">{{ item.unit_text }}</div></a>
+        </div>
         {% endfor %}
-    {% else %}
-        <h3 style="color: red;">No Unit</h3>
-    {% endif %}
+        {% else %}
+            <h3 style="color: red;">No Unit</h3>
+        {% endif %}
+    </div>
+    
 {% endblock %}
