@@ -1,0 +1,15 @@
+{% extends "Home/base.html" %}
+
+{% block title %}
+Unit_list
+{% endblock %}
+
+{% block content %}
+    {% if Unit %}
+        {% for item in Unit %}
+            <a href="{% url 'Ques_page' item.id %}"><li style="margin: 30px">{{ item.unit_text }}</li></a>
+        {% endfor %}
+    {% else %}
+        <h3 style="color: red;">No Unit</h3>
+    {% endif %}
+{% endblock %}

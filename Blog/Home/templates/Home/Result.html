@@ -1,0 +1,29 @@
+{% extends "Home/base.html" %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block content %}
+    {% if Result %}
+        {% for item in Result %}
+            {% if item.result_text == item.answer_text %}
+                <h2 style="color: green;">{{ item.question_text }} <div style="color: green;">○</div></h2>
+            {% elif item.result_kanji_text == item.answer_text %}
+                <h2 style="color: green;">{{ item.question_text }} <div style="color: green;">○</div></h2>
+            {% else %}
+                <h2 style="color: red;">{{ item.question_text }} <div style="color: red;">✖</div></h2>
+            {% endif %}
+            <li style="margin: 30px">Hira/Kata: {{ item.result_text }}</li>
+            <li style="margin: 30px">Kanji: {{ item.result_kanji_text }}</li>
+            <h3 style="color: black;">Your answer: {{ item.answer_text }}</h3>
+        {% endfor %}
+    {% else %}
+        <h3 style="color: red;">No Question</h3>
+    {% endif %}
+
+    <form action="{% url 'Unit_page' %}", method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Return to Home page"></p>
+    </form>
+{% endblock %}

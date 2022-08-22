@@ -1,0 +1,21 @@
+{% extends "Home/base.html" %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block content %}
+    {% if Ques %}
+        <h3 style="color: red;">{{ Unit_details.unit_text }}</h3>
+        <form action="{% url 'Ques_page' Unit_details.id %}", method="post">
+            {% csrf_token %}
+                {% for ques in Ques %}
+                    <li style="margin: 30px">{{ ques.question_text }}</li>
+                    <p style="margin: 50px"><input type="text" name="{{ ques.id }}"></p>
+                {% endfor %}
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    {% else %}
+        <h3 style="color: red;">No Question</h3>
+    {% endif %}
+{% endblock %}
