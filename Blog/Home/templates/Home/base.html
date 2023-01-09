@@ -7,13 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'Home/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<link rel="stylesheet" href="{% static 'Home/style.css' %}">
+
 <body>
-    <div class="header">
-        "Minna no Nihongo" new words Tester
+    <div class="header__container">
+        <div class="title__block">
+            <h1>みんなの日本語単語テスト</h1>
+        </div>
     </div>
-    {% block content %}
-    {% endblock %}
+    <div class="main__container">
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
 </body>
 </html>

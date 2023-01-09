@@ -5,7 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Hello, I'm {{ name }}</h1>
+    <p>Hello, I'm {{ name }}</p>
     <p>Welcome to my website</p>
-    <a href="{% url 'Unit_page' %}"><p>Begin</p></a>
+    <a href="{% url 'Unit_page' %}">
+        <div class="button__container">
+            <div class="button">
+                <p>Begin</p>
+            </div>
+        </div>
+    </a>
+    
 {% endblock %}
